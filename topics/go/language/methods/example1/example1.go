@@ -30,19 +30,19 @@ func main() {
 	// Values of type user can be used to call methods
 	// declared with both value and pointer receivers.
 	bill := user{"Bill", "bill@email.com"}
-	bill.notify()
 	bill.changeEmail("bill@hotmail.com")
+	bill.notify()
 
 	// Pointers of type user can also be used to call methods
 	// declared with both value and pointer receiver.
-	lisa := &user{"Lisa", "lisa@email.com"}
-	lisa.notify()
-	lisa.changeEmail("lisa@hotmail.com")
+	joan := &user{"Joan", "joan@email.com"}
+	joan.changeEmail("joan@hotmail.com")
+	joan.notify()
 
 	// Create a slice of user values with two users.
 	users := []user{
-		{"bill", "bill@email.com"},
-		{"lisa", "lisa@email.com"},
+		{"ed", "ed@email.com"},
+		{"erick", "erick@email.com"},
 	}
 
 	// Iterate over the slice of users switching

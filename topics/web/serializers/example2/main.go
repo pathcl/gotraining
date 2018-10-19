@@ -1,8 +1,7 @@
 // All material is licensed under the Apache License Version 2.0, January 2004
 // http://www.apache.org/licenses/LICENSE-2.0
 
-// Sample program to show how to implement the json.Marshaler interface
-// to dictate the marshaling.
+// Sample program to show how to control JSON encoding using struct tags.
 package main
 
 import (
@@ -12,43 +11,21 @@ import (
 	"time"
 )
 
-// User represents a user in the system.
+// User represents a user in the system. Omit the LastName
+// from Marshaling unless we have a value. Omit Age always.
 type User struct {
-	FirstName string
-	LastName  string
-	Age       int
+	FirstName string `json:"first_name"`
+	LastName  string `json:",omitempty"`
+	Age       int    `json:"-"`
 	CreatedAt time.Time
 	Admin     bool
 	Bio       *string
 }
 
-// MarshalJSON implements the json.Marshaler interface so we
-// can dictate how the user is marshaled.
-func (u *User) MarshalJSON() ([]byte, error) {
-
-	// Create a document of key/value pairs for each field.
-	m := map[string]interface{}{
-		"first_name": u.FirstName,
-		"CreatedAt":  u.CreatedAt,
-		"Admin":      u.Admin,
-		"Bio":        u.Bio,
-	}
-
-	// Omit the last name from the document unless
-	// we have a value.
-	if u.LastName != "" {
-		m["LastName"] = u.LastName
-	}
-
-	// We always omit Age so nothing to do.
-
-	return json.Marshal(m)
-}
-
 func main() {
 
 	// Encode a zero valued version of a user and write to stdout.
-	err := json.NewEncoder(os.Stdout).Encode(&User{})
+	err := json.NewEncoder(os.Stdout).Encode(User{})
 	if err != nil {
 		log.Fatal(err)
 	}

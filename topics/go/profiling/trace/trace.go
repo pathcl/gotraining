@@ -6,89 +6,409 @@
 package main
 
 import (
-	"io"
+	"context"
+	"encoding/xml"
+	"fmt"
 	"io/ioutil"
 	"log"
-	"net/http"
 	"os"
+	"runtime"
 	"runtime/trace"
+	"strings"
+	"sync"
+	"sync/atomic"
 )
 
-// LoadWrite reads a file from the network into memory and then
-// writes it to disk.
-func LoadWrite() {
-
-	// Download the tar file.
-	r, err := http.Get("https://ftp.gnu.org/gnu/binutils/binutils-2.7.tar.gz")
-	if err != nil {
-		log.Fatal(err)
+type (
+	item struct {
+		XMLName     xml.Name `xml:"item"`
+		Title       string   `xml:"title"`
+		Description string   `xml:"description"`
 	}
 
-	// Read in the entire contents of the file.
-	body, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer r.Body.Close()
-
-	// Create a new file.
-	f, err := ioutil.TempFile("", "example")
-	if err != nil {
-		log.Fatal(err)
+	channel struct {
+		XMLName xml.Name `xml:"channel"`
+		Items   []item   `xml:"item"`
 	}
 
-	// Defer the close and removal of the file.
-	defer os.Remove(f.Name())
-	defer f.Close()
-
-	// Write the data to the file.
-	_, err = f.Write(body)
-	if err != nil {
-		log.Fatal(err)
+	document struct {
+		XMLName xml.Name `xml:"rss"`
+		Channel channel  `xml:"channel"`
 	}
-}
-
-// StreamWrite streams a file from the network, writing it to disk.
-func StreamWrite() {
-
-	// Download the tar file.
-	r, err := http.Get("https://ftp.gnu.org/gnu/binutils/binutils-2.7.tar.gz")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Create a new file.
-	f, err := ioutil.TempFile("", "example")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Defer the close and removal of the file.
-	defer os.Remove(f.Name())
-	defer f.Close()
-
-	// Stream the file to disk.
-	if _, err = io.Copy(f, r.Body); err != nil {
-		if err != io.EOF {
-			log.Fatal(err)
-		}
-	}
-}
+)
 
 func main() {
+	// pprof.StartCPUProfile(os.Stdout)
+	// defer pprof.StopCPUProfile()
 
-	// Create a file to hold tracing data.
-	tf, err := os.Create("trace.out")
-	if err != nil {
-		log.Fatal(err)
+	// trace.Start(os.Stdout)
+	// defer trace.Stop()
+
+	docs := make([]string, 1000)
+	for i := range docs {
+		docs[i] = fmt.Sprintf("newsfeed-%.4d.xml", i)
 	}
-	defer tf.Close()
 
-	// Start gathering the tracing data.
-	trace.Start(tf)
-	defer trace.Stop()
+	topic := "president"
 
-	// Perform the work.
-	//LoadWrite()
-	//StreamWrite()
+	n := find(topic, docs)
+	// n := findConcurrent(topic, docs)
+	// n := findConcurrentSem(topic, docs)
+	// n := findNumCPU(topic, docs)
+	// n := findActor(topic, docs)
+	// n := findNumCPUTasks(topic, docs)
+
+	log.Printf("Found %s %d times.", topic, n)
+}
+
+func find(topic string, docs []string) int {
+	var found int
+
+	for _, doc := range docs {
+		file := fmt.Sprintf("%s.xml", doc[:8])
+		f, err := os.OpenFile(file, os.O_RDONLY, 0)
+		if err != nil {
+			log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
+			return 0
+		}
+
+		data, err := ioutil.ReadAll(f)
+		if err != nil {
+			f.Close()
+			log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
+			return 0
+		}
+		f.Close()
+
+		var d document
+		if err := xml.Unmarshal(data, &d); err != nil {
+			log.Printf("Decoding Document [%s] : ERROR : %v", doc, err)
+			return 0
+		}
+
+		for _, item := range d.Channel.Items {
+			if strings.Contains(item.Title, topic) {
+				found++
+				continue
+			}
+
+			if strings.Contains(item.Description, topic) {
+				found++
+			}
+		}
+	}
+
+	return found
+}
+
+func findConcurrent(topic string, docs []string) int {
+	var found int32
+
+	g := len(docs)
+	var wg sync.WaitGroup
+	wg.Add(g)
+
+	for _, doc := range docs {
+		go func(doc string) {
+			var lFound int32
+			defer func() {
+				atomic.AddInt32(&found, lFound)
+				wg.Done()
+			}()
+
+			file := fmt.Sprintf("%s.xml", doc[:8])
+			f, err := os.OpenFile(file, os.O_RDONLY, 0)
+			if err != nil {
+				log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
+				return
+			}
+
+			data, err := ioutil.ReadAll(f)
+			if err != nil {
+				f.Close()
+				log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
+				return
+			}
+			f.Close()
+
+			var d document
+			if err := xml.Unmarshal(data, &d); err != nil {
+				log.Printf("Decoding Document [%s] : ERROR : %v", doc, err)
+				return
+			}
+
+			for _, item := range d.Channel.Items {
+				if strings.Contains(item.Title, topic) {
+					lFound++
+					continue
+				}
+
+				if strings.Contains(item.Description, topic) {
+					lFound++
+				}
+			}
+		}(doc)
+	}
+
+	wg.Wait()
+	return int(found)
+}
+
+func findConcurrentSem(topic string, docs []string) int {
+	var found int32
+
+	g := len(docs)
+	var wg sync.WaitGroup
+	wg.Add(g)
+
+	ch := make(chan bool, runtime.NumCPU())
+
+	for _, doc := range docs {
+		go func(doc string) {
+			ch <- true
+			{
+				var lFound int32
+				defer func() {
+					atomic.AddInt32(&found, lFound)
+					wg.Done()
+				}()
+
+				file := fmt.Sprintf("%s.xml", doc[:8])
+				f, err := os.OpenFile(file, os.O_RDONLY, 0)
+				if err != nil {
+					log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
+					return
+				}
+
+				data, err := ioutil.ReadAll(f)
+				if err != nil {
+					f.Close()
+					log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
+					return
+				}
+				f.Close()
+
+				var d document
+				if err := xml.Unmarshal(data, &d); err != nil {
+					log.Printf("Decoding Document [%s] : ERROR : %v", doc, err)
+					return
+				}
+
+				for _, item := range d.Channel.Items {
+					if strings.Contains(item.Title, topic) {
+						lFound++
+						continue
+					}
+
+					if strings.Contains(item.Description, topic) {
+						lFound++
+					}
+				}
+			}
+			<-ch
+		}(doc)
+	}
+
+	wg.Wait()
+	return int(found)
+}
+
+func findNumCPU(topic string, docs []string) int {
+	var found int32
+
+	g := runtime.NumCPU()
+	var wg sync.WaitGroup
+	wg.Add(g)
+
+	ch := make(chan string, len(docs))
+	for _, doc := range docs {
+		ch <- doc
+	}
+	close(ch)
+
+	for i := 0; i < g; i++ {
+		go func() {
+			var lFound int32
+			defer func() {
+				atomic.AddInt32(&found, lFound)
+				wg.Done()
+			}()
+
+			for doc := range ch {
+				file := fmt.Sprintf("%s.xml", doc[:8])
+				f, err := os.OpenFile(file, os.O_RDONLY, 0)
+				if err != nil {
+					log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
+					return
+				}
+
+				data, err := ioutil.ReadAll(f)
+				if err != nil {
+					f.Close()
+					log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
+					return
+				}
+				f.Close()
+
+				var d document
+				if err := xml.Unmarshal(data, &d); err != nil {
+					log.Printf("Decoding Document [%s] : ERROR : %v", doc, err)
+					return
+				}
+
+				for _, item := range d.Channel.Items {
+					if strings.Contains(item.Title, topic) {
+						lFound++
+						continue
+					}
+
+					if strings.Contains(item.Description, topic) {
+						lFound++
+					}
+				}
+			}
+		}()
+	}
+
+	wg.Wait()
+	return int(found)
+}
+
+func findNumCPUTasks(topic string, docs []string) int {
+	var found int32
+
+	g := runtime.NumCPU()
+	var wg sync.WaitGroup
+	wg.Add(g)
+
+	ch := make(chan string, len(docs))
+	for _, doc := range docs {
+		ch <- doc
+	}
+	close(ch)
+
+	for i := 0; i < g; i++ {
+		go func() {
+			var lFound int32
+			defer func() {
+				atomic.AddInt32(&found, lFound)
+				wg.Done()
+			}()
+
+			for doc := range ch {
+				func() {
+					file := fmt.Sprintf("%s.xml", doc[:8])
+					ctx, tt := trace.NewTask(context.Background(), doc)
+					defer tt.End()
+
+					reg := trace.StartRegion(ctx, "OpenFile")
+					f, err := os.OpenFile(file, os.O_RDONLY, 0)
+					if err != nil {
+						log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
+						return
+					}
+					reg.End()
+
+					reg = trace.StartRegion(ctx, "ReadAll")
+					data, err := ioutil.ReadAll(f)
+					if err != nil {
+						f.Close()
+						log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
+						return
+					}
+					f.Close()
+					reg.End()
+
+					reg = trace.StartRegion(ctx, "Unmarshal")
+					var d document
+					if err := xml.Unmarshal(data, &d); err != nil {
+						log.Printf("Decoding Document [%s] : ERROR : %v", doc, err)
+						return
+					}
+					reg.End()
+
+					reg = trace.StartRegion(ctx, "Search")
+					for _, item := range d.Channel.Items {
+						if strings.Contains(item.Title, topic) {
+							lFound++
+							continue
+						}
+
+						if strings.Contains(item.Description, topic) {
+							lFound++
+						}
+					}
+					reg.End()
+				}()
+			}
+		}()
+	}
+
+	wg.Wait()
+	return int(found)
+}
+
+func findActor(topic string, docs []string) int {
+	files := make(chan *os.File, 100)
+	go func() {
+		for _, doc := range docs {
+			file := fmt.Sprintf("%s.xml", doc[:8])
+			f, err := os.OpenFile(file, os.O_RDONLY, 0)
+			if err != nil {
+				log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
+				break
+			}
+			files <- f
+		}
+		close(files)
+	}()
+
+	data := make(chan []byte, 100)
+	go func() {
+		for f := range files {
+			defer f.Close()
+			d, err := ioutil.ReadAll(f)
+			if err != nil {
+				log.Printf("Reading Document [%s] : ERROR : %v", f.Name(), err)
+				break
+			}
+			data <- d
+		}
+		close(data)
+	}()
+
+	rss := make(chan document, 100)
+	go func() {
+		for dt := range data {
+			var d document
+			if err := xml.Unmarshal(dt, &d); err != nil {
+				log.Printf("Decoding Document : ERROR : %v", err)
+				break
+			}
+			rss <- d
+		}
+		close(rss)
+	}()
+
+	var wg sync.WaitGroup
+	wg.Add(1)
+	var found int
+	go func() {
+		for d := range rss {
+			for _, item := range d.Channel.Items {
+				if strings.Contains(item.Title, topic) {
+					found++
+					continue
+				}
+
+				if strings.Contains(item.Description, topic) {
+					found++
+				}
+			}
+		}
+		wg.Done()
+	}()
+
+	wg.Wait()
+	return found
 }

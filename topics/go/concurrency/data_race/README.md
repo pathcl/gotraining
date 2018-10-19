@@ -1,6 +1,6 @@
 ## Data Races
 
-A data race is when two or more goroutines attempt to read and write to the same resource at the same time. Race conditions can create bugs that totally appear random or can be never surface as they corrupt data. Atomic functions and mutexes are a way to synchronize the access of shared resources between goroutines.
+A data race is when two or more goroutines attempt to read and write to the same resource at the same time. Race conditions can create bugs that appear totally random or can never surface as they corrupt data. Atomic functions and mutexes are a way to synchronize the access of shared resources between goroutines.
 
 ## Notes
 
@@ -23,12 +23,11 @@ This content is provided by Scott Meyers from his talk in 2014 at Dive:
 
 ## Links
 
-[Eliminate False Sharing](http://www.drdobbs.com/parallel/eliminate-false-sharing/217500206)
-
-[The Go Memory Model](https://golang.org/ref/mem)  
-http://blog.golang.org/race-detector  
-http://www.goinggo.net/2013/09/detecting-race-conditions-with-go.html  
-https://golang.org/doc/articles/race_detector.html
+[Eliminate False Sharing](http://www.drdobbs.com/parallel/eliminate-false-sharing/217500206) - Herb Sutter    
+[The Go Memory Model](https://golang.org/ref/mem)    
+[Introducing the Go Race Detector](http://blog.golang.org/race-detector) - Dmitry Vyukov and Andrew Gerrand    
+[Detecting Race Conditions With Go](http://www.goinggo.net/2013/09/detecting-race-conditions-with-go.html) - William Kennedy    
+[Data Race Detector](https://golang.org/doc/articles/race_detector.html)    
 
 ## Diagram
 
@@ -38,14 +37,15 @@ https://golang.org/doc/articles/race_detector.html
 
 ## Code Review
 
-[Data Race](example1/example1.go) ([Go Playground](https://play.golang.org/p/yXiOONCG-2))  
-[Atomic Increments](example2/example2.go) ([Go Playground](https://play.golang.org/p/SbWFzQT1zu))  
-[Mutex](example3/example3.go) ([Go Playground](https://play.golang.org/p/_4TYRcZ2vP))  
-[Read/Write Mutex](example4/example4.go) ([Go Playground](https://play.golang.org/p/uMU7Crx6ZY))
+[Data Race](example1/example1.go) ([Go Playground](https://play.golang.org/p/zahCnOjS4Q1))  
+[Atomic Increments](example2/example2.go) ([Go Playground](https://play.golang.org/p/DkqwruQwS-N))  
+[Mutex](example3/example3.go) ([Go Playground](https://play.golang.org/p/T15uvr3SxHa))  
+[Read/Write Mutex](example4/example4.go) ([Go Playground](https://play.golang.org/p/_n32wetlmSs))  
+[Map Data Race](example5/example5.go) ([Go Playground](https://play.golang.org/p/ktWRjcJWNjw))
 
 ## Advanced Code Review
 
-[Interface Based Race Condition](advanced/example1/example1.go) ([Go Playground](https://play.golang.org/p/m08N8yYlpr))
+[Interface Based Race Condition](advanced/example1/example1.go) ([Go Playground](https://play.golang.org/p/fwRTeBQrZVW))
 
 ## Exercises
 
@@ -107,7 +107,7 @@ Given the following program, use the race detector to find and correct the data 
 		}
 	}
 
-[Template](exercises/template1/template1.go) ([Go Playground](http://play.golang.org/p/G7_rJAK8YR)) | 
-[Answer](exercises/exercise1/exercise1.go) ([Go Playground](http://play.golang.org/p/GC12H2acgO))
+[Template](exercises/template1/template1.go) ([Go Playground](https://play.golang.org/p/Mzt11_xe_ou)) | 
+[Answer](exercises/exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/KAakUVF_1k-))
 ___
 All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).

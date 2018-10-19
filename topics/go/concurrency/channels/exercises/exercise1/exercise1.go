@@ -29,7 +29,7 @@ func main() {
 	}()
 
 	go func() {
-		goroutine("Lisa", share)
+		goroutine("Joan", share)
 		wg.Done()
 	}()
 
@@ -44,7 +44,7 @@ func main() {
 func goroutine(name string, share chan int) {
 	for {
 
-		// Wait for the ball to be hit back to us.
+		// Wait to receive a value.
 		value, ok := <-share
 		if !ok {
 

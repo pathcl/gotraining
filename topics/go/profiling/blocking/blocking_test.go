@@ -16,10 +16,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/plotter"
-	"github.com/gonum/plot/plotutil"
-	"github.com/gonum/plot/vg"
+	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/plotter"
+	"gonum.org/v1/plot/plotutil"
+	"gonum.org/v1/plot/vg"
 )
 
 // data represents a set of bytes to process.
@@ -93,9 +93,7 @@ func TestLatencies(t *testing.T) {
 	}
 
 	// Make the plot of latencies.
-	if err := makePlot(pts); err != nil {
-		log.Fatal(err)
-	}
+	makePlot(pts)
 }
 
 // stream performs the moving of the data stream from
@@ -181,9 +179,5 @@ func makePlot(xys plotter.XYs) error {
 	}
 
 	// Save the plot to a PNG file.
-	if err := p.Save(10*vg.Inch, 5*vg.Inch, "latencies.png"); err != nil {
-		return err
-	}
-
-	return nil
+	return p.Save(10*vg.Inch, 5*vg.Inch, "latencies.png")
 }

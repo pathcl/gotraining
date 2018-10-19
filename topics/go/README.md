@@ -1,24 +1,30 @@
 ## Ultimate Go
 
-This is material for any intermediate-level developer who has at least a few months to years of experience writing code in Go. This class provides a very deep knowledge of the programming language with a big push on language mechanics, design philosophies and guidelines. We focus on teaching how to write code with a priority on consistency, integrity, readability and simplicity. We cover a lot about “if performance matters” with a focus on mechanical sympathy, data oriented design, decoupling and writing production software. We close the class with benchmarking, profiling, tracing and debugging. If you want your team to be better Go developers, code reviewers, designers and architects, this is the class they need.
+This is material for any intermediate-level developer who has some experience with other programming languages and wants to learn Go. We believe these classes are perfect for anyone who wants a jump start in learning Go or who wants a more thorough understanding of the language and its internals.
+
+Note: This material has been designed to be taught in a classroom environment. The code is well commented but missing some of the contextual concepts and ideas that will be covered in class.
 
 [Ultimate Go](../courses/go/README.md)
 
 ## Design Guidelines
- 
-_"An architecture isn't a set of pieces, it's a set of rules about what you can expect of them." - Michael Feathers_
 
 You must develop a design philosophy that establishes a set of guidelines. This is more important than developing a set of rules or patterns you apply blindly. Guidelines help to formulate, drive and validate decisions. You can't begin to make the best decisions without understanding the impact of your decisions. Every decision you make, every line of code you write comes with trade-offs.
 
-* [Prepare Your Mind](https://github.com/ardanlabs/gotraining/tree/master/topics/go#prepare-your-mind)
-* [Productivity vs Performance](https://github.com/ardanlabs/gotraining/tree/master/topics/go#productivity-vs-performance)
-* [Correctness vs Performance](https://github.com/ardanlabs/gotraining/tree/master/topics/go#correctness-vs-performance)
-* [Code Reviews](https://github.com/ardanlabs/gotraining/tree/master/topics/go#code-reviews)
-* [Data Oriented Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#data-oriented-design)
-* [Interface And Composition Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#interface-and-composition-design)
-* [Package Oriented Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#package-oriented-design)
-* [Concurrent Software Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#concurrent-software-design)
-* [Channel Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#channel-design)
+* Philosophy
+    * [Prepare Your Mind](https://github.com/ardanlabs/gotraining/tree/master/topics/go#prepare-your-mind)
+    * [Legacy Software](https://github.com/ardanlabs/gotraining/tree/master/topics/go#legacy-software)
+    * [Mental Models](https://github.com/ardanlabs/gotraining/tree/master/topics/go#mental-models)
+    * [Productivity vs Performance](https://github.com/ardanlabs/gotraining/tree/master/topics/go#productivity-vs-performance)
+    * [Correctness vs Performance](https://github.com/ardanlabs/gotraining/tree/master/topics/go#correctness-vs-performance)
+    * [Rules](https://github.com/ardanlabs/gotraining/tree/master/topics/go#rules)
+    * [Senior vs Junior Developers](https://github.com/ardanlabs/gotraining/tree/master/topics/go#senior-vs-junior-developers)
+    * [Code Reviews](https://github.com/ardanlabs/gotraining/tree/master/topics/go#code-reviews)
+* Guidelines
+    * [Data Oriented Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#data-oriented-design)
+    * [Interface And Composition Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#interface-and-composition-design)
+    * [Package Oriented Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#package-oriented-design)
+    * [Concurrent Software Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#concurrent-software-design)
+    * [Channel Design](https://github.com/ardanlabs/gotraining/tree/master/topics/go#channel-design)
 
 ---
 
@@ -49,15 +55,46 @@ You must develop a design philosophy that establishes a set of guidelines. This 
 
 Do you care about the legacy you are leaving behind?
 
+**Quotes**
+
 _"There are two kinds of software projects: those that fail, and those that turn into legacy horrors." - Peter Weinberger (inventor of AWK)_
 
 _"Legacy software is an unappreciated but serious problem. Legacy code may be the downfall of our civilization." - Chuck Moore (inventor of Forth)_
+
+_"We think awful code is written by awful devs. But in reality, it's written by reasonable devs in awful circumstances." - Sarah Mei_
+
+---
+
+### Mental Models
+
+You must constantly make sure your mental model of your projects are clear. When you can't remember where a piece of logic is or you can't remember how something works, you are losing your mental model of the code. This is a clear indication that refactoring is a must. Focus time on structuring code that provides the best mental model possible and code review for this as well.
+
+How much code in that box do you think you can maintain a mental model of in your head? I believe asking a single developer to maintain a mental model of more than one ream of paper in that box (~10k lines of code) is asking a lot. If you do the math, then it takes a team of 100 people to work on a code base that hits a million lines of code. That is 100 people that need to be coordinated, grouped, tracked and in a constant feedback loop of communication.
+
+**Quotes**
+
+_"Let's imagine a project that's going to end up with a million lines of code or more. The probability of those projects being successful in the United States these days is very low - well under 50%. That's debatable." - Tom Love (inventor of Objective C)_
+
+_"100k lines of code fit inside a box of paper." - Tom Love (inventor of Objective C)_
+
+_"One of our many problems with thinking is “cognitive load”: the number of things we can pay attention to at once. The cliche is 7±2, but for many things it is even less. We make progress by making those few things be more powerful." - Alan Kay_
+
+_"The hardest bugs are those where your mental model of the situation is just wrong, so you can't see the problem at all." - Brian Kernighan_
+
+_"Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?" - Brian Kernighan_
+
+_"Debuggers don't remove bugs. They only show them in slow motion." - Unknown_
+
+**Resources:**
+
+[The Magical Number Seven, Plus or Minus Two](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two) - Wikipedia  
+[Psychology of Code Readability](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) - Egon Elbre  
 
 ---
 
 ### Productivity vs Performance
 
-Productivity and performance both matter, but in the past you couldn’t have both. You needed to choose one over the other. We naturally gravitated to productivity, with the idea or hope that the hardware would resolve our performance problems for free. This movement towards productivity has resulted in the design of programming languages that produce sluggish software that is out pacing the hardware’s ability to make them faster.
+Productivity and performance both matter, but in the past you couldn’t have both. You needed to choose one over the other. We naturally gravitated to productivity, with the idea or hope that the hardware would resolve our performance problems for free. This movement towards productivity has resulted in the design of programming languages that produce sluggish software that is outpacing the hardware’s ability to make them faster.
 
 By following Go’s idioms and a few guidelines, we can write code that can be reasoned about by anyone who looks at it. We can write software that simplifies, minimizes and reduces the amount of code we need to solve the problems we are working on. We don’t have to choose productivity over performance or performance over productivity anymore. We can have both.
 
@@ -87,15 +124,17 @@ Refactoring must become part of the development cycle. Refactoring is the proces
 
 **Quotes**
 
+_"Make it correct, make it clear, make it concise, make it fast. In that order." - Wes Dyer_
+
+_"Good engineering is less about finding the "perfect" solution and more about understanding the tradeoffs and being able to explain them." - JBD_
+
+_"Choosing the right limitations for a certain problem domain is often much more powerful than allowing anything." - Jason Moiron_
+
 _"The correctness of the implementation is the most important concern, but there is no royal road to correctness. It involves diverse tasks such as thinking of invariants, testing and code reviews. Optimization should be done, but not prematurely." - Al Aho (inventor of AWK)_
 
 _"The basic ideas of good style, which are fundamental to write clearly and simply, are just as important now as they were 35 years ago. Simple, straightforward code is just plain easier to work with and less likely to have problems. As programs get bigger and more complicated, it's even more important to have clean, simple code." - Brian Kernighan_
 
-_"Unless the developer has a really good idea of what the software is going to be used for, there's a very high probability that the software will turn out badly. If the developers don't know and understand the application well, then it's crucial to get as much user input and experience as possible." - Brian Kernighan_
-
-_"The hardest bugs are those where your mental model of the situation is just wrong, so you can't see the problem at all" - Brian Kernighan_
-
-_"Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?" - Brian Kernighan_
+_"Problems can usually be solved with simple, mundane solutions. That means there's no glamorous work. You don't get to show off your amazing skills. You just build something that gets the job done and then move on. This approach may not earn you oohs and aahs, but it lets you get on with it." - Jason Fried_
 
 **Resources:**
 
@@ -103,11 +142,51 @@ _"Everyone knows that debugging is twice as hard as writing a program in the fir
 
 ---
 
+### Rules
+
+* Rules have costs.
+* Rules must pull their weight - Don’t be clever (high level).
+* Value the standard, don’t idolize it.
+* Be consistent!
+* Semantics convey ownership.
+
+**Quotes**
+
+_"An architecture isn't a set of pieces, it's a set of rules about what you can expect of them." - Michael Feathers_
+
+**Resources:**
+
+[The Philosophy of Google's C++ Code](https://www.youtube.com/watch?v=NOCElcMcFik) - Titus Winters
+
+---
+
+### Senior vs Junior Developers
+
+What is the difference between a Senior and Junior developer?
+
+**Quotes**
+
+_"You are personally responsible for the software you write." - Stephen Bourne (Bourne shell)_
+
+_"And the difference between juniors+seniors to those who are in-between, is the confidence to ask "dumb" questions." - Natalie Pistunovich_
+
+_"Mistakes are an inevitable consequence of doing something new and, as such, should be seen as valuable; without them, we'd have no originality." - Ed Catmull (President of Pixar)_
+
+_"It takes considerable knowledge just to realize the extent of your own ignorance." - Thomas Sowell_
+
+_"If you don’t make mistakes, you’re not working on hard enough problems." - Frank Wilczek_
+
+---
+
 ### Code Reviews
 
 You can't look at a piece of code, function or algorithm and determine if it smells good or bad without a design philosophy. These four major categories are the basis for code reviews and should be prioritized in this order: Integrity, Readability, Simplicity and then Performance. You must consciously and with great reason be able to explain the category you are choosing.
 
+**Quotes**
+
 _"The software business is one of the few places we teach people to write before we teach them to read". - Tom Love (inventor of Objective C)_
+
+_"Design depends largely on constraint." - Charles Eames"_
 
 ---
 
@@ -144,25 +223,12 @@ When error handling is treated as an exception and not part of the main code, yo
         * 34% : Complex bugs
 * 8% : Failures from latent human errors
 
-**Ignorance vs Carelessness:**
+**Quotes**
 
-Anytime we identify an integrity issue we need to ask ourselves why it happened.
-```
-                    Not Deliberate               Deliberate
-              ------------------------------------------------------
-              |                          |                         |
-              |                          |                         |
-   Ignorance  |  Learning / Prototyping  |    Hacking / Guessing   |
-              |                          |                         |
-              |                          |                         |
-              |-----------------------------------------------------
-              |                          |                         |
-              |                          |                         |
-Carelessness  |        Education         |   Dangerous Situation   |
-              |                          |                         |
-              |                          |                         |
-              ------------------------------------------------------
-```
+_"Failure is expected, failure is not an odd case. Design systems that help you identify failure. Design systems that can recover from failure." - JBD_
+
+_"Product excellence is the difference between something that only works under certain conditions, and something that only breaks under certain conditions". - Kelsey Hightower_
+
 **Resources:**
 
 [Software Development for Infrastructure](http://www.stroustrup.com/Software-for-infrastructure.pdf) - Bjarne Stroustrup  
@@ -184,25 +250,31 @@ This is about writing simple code that is easy to read and understand without th
 
 [Example Readability Issue](http://cpp.sh/6i7d)  
 
-**Real Machine**
+**Code Must Never Lie**
 
-_"A well-designed language has a one-one correlation between source code and object code. It's obvious to the programmer what code will be generated from their source. This provides its own satisfaction, is efficient, and reduces the need for documentation." - Chuck Moore (inventor of Forth)_
+We have all been here if you have been programming long enough. At this point it doesn't matter how fast the code might be if no one can understand or maintain it moving forward.
 
-In Go, the underlying machine is the real machine rather than a single abstract machine. The model of computation is that of the computer. Here is the key, Go gives you direct access to the machine while still providing abstraction mechanisms to allow higher-level ideas to be expressed.
+**Quotes**
 
-**Mental Models**
+_"This is a cardinal sin amongst programmers. If code looks like it’s doing one thing when it’s actually doing something else, someone down the road will read that code and misunderstand it, and use it or alter it in a way that causes bugs. That someone might be you, even if it was your code in the first place." - Nate Finch_
 
-_"Let's imagine a project that's going to end up with a million lines of code or more. The probability of those projects being successful in the United States these days is very low - well under 50%. That's debatable. - Tom Love (inventor of Objective C)_
-
-_100k lines of code fit inside a box of paper. - Tom Love (inventor of Objective C)_
-
-How much code in that box do you think you can maintain a mental model of in your head? I believe asking a single developer to maintain a mental model of more than one ream of paper in that box (~10k lines of code) is asking a lot. If you do the math, then it takes a team of 100 people to work on a code base that hits a million lines of code. That is 100 people that need to be coordinated, grouped, tracked and in a constant feedback loop of communication.
+[Code Must Never Lie](https://npf.io/2017/08/lies)
 
 **Average Developer**
 
+You must be aware of who you are on your team. When hiring new people, you must be aware of where they fall. The code must be written for the average developer to comprehend. If you are below average, you have the responsibility to come up to speed. If you are the expert, you have the responsibility to reduce being clever.
+
+**Quotes**
+
 _"Can you explain it to the median user (developer)? as opposed to will the smartest user (developer) figure it out?" - Peter Weinberger (inventor of AWK)_
 
-You must be aware of who you are on your team. When hiring new people, you must be aware of where they fall. The code must be written for the average developer to comprehend. If you are below average, you have the responsibility to come up to speed. If you are the expert, you have the responsbility to reduce being clever.
+**Real Machine**
+
+In Go, the underlying machine is the real machine rather than a single abstract machine. The model of computation is that of the computer. Here is the key, Go gives you direct access to the machine while still providing abstraction mechanisms to allow higher-level ideas to be expressed.
+
+**Quotes**
+
+_"Making things easy to do is a false economy. Focus on making things easy to understand and the rest will follow." - Peter Bourgon_
 
 ---
 
@@ -212,23 +284,32 @@ You must be aware of who you are on your team. When hiring new people, you must 
 
 This is about hiding complexity. A lot of care and design must go into simplicity because this can cause more problems then good. It can create issues with readability and it can cause issues with performance.
 
-**Simple, But Not Simpler**
-
-_"Everything should be made as simple as possible, but not simpler." - Albert Einstein_
+**Complexity Sells Better**
 
 Focus on encapsulation and validate that you're not generalizing or even being too concise. You might think you are helping the programmer or the code but validate things are still easy to use, understand, debug and maintain.
 
+**Quotes**
+
+_"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better." - Edsger W. Dijkstra_
+
+_"Everything should be made as simple as possible, but not simpler." - Albert Einstein_
+
 **Encapsulation**
+
+Encapsulation is what we have been trying to figure out as an industry for 40 years. Go is taking a slightly new approach with the package. Bringing encapsulation up a level and providing richer support at the language level.
+
+**Quotes**
 
 _Paraphrasing: "Encapsulation and the separation of concerns are drivers for designing software. This is largely based on how other industries handle complexity. There seems to be a human pattern of using encapsulation to wrestle complexity to the ground." - Brad Cox (inventor of Objective C)_
 
 _"The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise - Edsger W. Dijkstra_
 
-Encapsulation is what we have been trying to figure out as an industry for 40 years. Go is taking a slightly new approach with the package. Brining encapsulation up a level and providing richer support at the language level.
+_"Computing is all about abstractions. Those below yours are just details. Those above yours are limiting complicated crazy town." - Joe Beda_
 
 **Resources:**
 
 [Simplicity is Complicated](https://www.youtube.com/watch?v=rFejpH_tAHM) - Rob Pike  
+[What did Alan Kay mean by, "Lisp is the greatest single programming language ever designed"?](https://www.quora.com/What-did-Alan-Kay-mean-by-Lisp-is-the-greatest-single-programming-language-ever-designed/answer/Alan-Kay-11) - Alan Kay
 
 ---
 
@@ -238,7 +319,9 @@ Encapsulation is what we have been trying to figure out as an industry for 40 ye
 
 This is about not wasting effort and achieving execution efficiency. Writing code that is mechanically sympathetic with the runtime, operating system and hardware. Achieving performance by writing less and more efficient code but staying within the idioms and framework of the language.
 
-_"Programmers waste enormous amounts of time thinking about, or worrying about, the speed of non-critical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%." — Donald E. Knuth_
+**Quotes**
+
+_"Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%." — Donald E. Knuth_
 
 _"I don't trust anything until it runs... In fact, I don't trust anything until it runs twice." - Andrew Gelman (one of the greatest living statisticians at Columbia University)._
 
@@ -252,10 +335,12 @@ Rules of Performance:
 
 **Broad Engineering**
 
-_"When we're computer programmers we're concentrating on the intricate little fascinating details of programming and we don't take a broad engineering point of view about trying to optimize the total system. You try to optimize the bits and bytes." - Tom Kurtz (inventor of BASIC)_
-
 Performance is important but it can't be your priority unless the code is not running fast enough. You only know this once you have a working program and you have validated it. We place those who we think know how to write performant code on a pedestal. We need to put those who write code that is optimized for correctness and performs fast enough on those pedestals.
 
+**Quotes**
+
+_"When we're computer programmers we're concentrating on the intricate little fascinating details of programming and we don't take a broad engineering point of view about trying to optimize the total system. You try to optimize the bits and bytes." - Tom Kurtz (inventor of BASIC)_
+     
 ---
 
 ### Micro-Optimizations
@@ -400,14 +485,14 @@ Channels allow goroutines to communicate with each other through the use of sign
         * _There are cases where channels can be simpler for this but initially question._
 * Unbuffered channels:
     * Receive happens before the Send.
-    * Benefit: 100% guarentee the signal has been received.
+    * Benefit: 100% guarantee the signal has been received.
     * Cost: Unknown latency on when the signal will be received.
 * Buffered channels:
     * Send happens before the Receive.
     * Benefit: Reduce blocking latency between signaling.
-    * Cost: No guarentee when the signal has been received.
-        * The larger the buffer, the less guarentee.
-        * Buffer of 1 can give you one delayed send of guarentee.
+    * Cost: No guarantee when the signal has been received.
+        * The larger the buffer, the less guarantee.
+        * Buffer of 1 can give you one delayed send of guarantee.
 * Closing channels:
     * Close happens before the Receive. (like Buffered)
     * Signaling without data.
@@ -415,7 +500,7 @@ Channels allow goroutines to communicate with each other through the use of sign
 * NIL channels:
     * Send and Receive block.
     * Turn off signaling
-    * Perfect for rate limiting or short term stoppages.
+    * Perfect for rate limiting or short-term stoppages.
 
 **Design Philosophy:**
 
