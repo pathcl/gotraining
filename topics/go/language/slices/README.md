@@ -11,15 +11,15 @@ Slices are an incredibly important data structure in Go. They form the basis for
 
 ## Links
 
-http://blog.golang.org/go-slices-usage-and-internals  
-https://blog.golang.org/strings  
-http://blog.golang.org/slices  
-http://www.goinggo.net/2013/08/understanding-slices-in-go-programming.html  
-http://www.goinggo.net/2013/08/collections-of-unknown-length-in-go.html  
-http://www.goinggo.net/2013/09/iterating-over-slices-in-go.html  
-http://www.goinggo.net/2013/09/slices-of-slices-of-slices-in-go.html  
-http://www.goinggo.net/2013/12/three-index-slices-in-go-12.html  
-https://github.com/golang/go/wiki/SliceTricks  
+[Go Slices: usage and internals](https://blog.golang.org/go-slices-usage-and-internals) - Andrew Gerrand    
+[Strings, bytes, runes and characters in Go](https://blog.golang.org/strings) - Rob Pike    
+[Arrays, slices (and strings): The mechanics of 'append'](https://blog.golang.org/slices) - Rob Pike    
+[Understanding Slices in Go Programming](https://www.ardanlabs.com/blog/2013/08/understanding-slices-in-go-programming.html) - William Kennedy    
+[Collections Of Unknown Length in Go](https://www.ardanlabs.com/blog/2013/08/collections-of-unknown-length-in-go.html) - William Kennedy    
+[Iterating Over Slices In Go](https://www.ardanlabs.com/blog/2013/09/iterating-over-slices-in-go.html) - William Kennedy    
+[Slices of Slices of Slices in Go](https://www.ardanlabs.com/blog/2013/09/slices-of-slices-of-slices-in-go.html) - William Kennedy    
+[Three-Index Slices in Go 1.2](https://www.ardanlabs.com/blog/2013/12/three-index-slices-in-go-12.html) - William Kennedy    
+[SliceTricks](https://github.com/golang/go/wiki/SliceTricks)    
 
 ## Code Review
 
@@ -27,7 +27,7 @@ https://github.com/golang/go/wiki/SliceTricks
 [Reference Types](example2/example2.go) ([Go Playground](https://play.golang.org/p/WqDnss06_9E))  
 [Appending slices](example4/example4.go) ([Go Playground](https://play.golang.org/p/E-NTGM6daAA))  
 [Taking slices of slices](example3/example3.go) ([Go Playground](https://play.golang.org/p/rUP9grCot8J))  
-[Slices and References](example5/example5.go) ([Go Playground](https://play.golang.org/p/D88zzGYanvX)  
+[Slices and References](example5/example5.go) ([Go Playground](https://play.golang.org/p/D88zzGYanvX))  
 [Strings and slices](example6/example6.go) ([Go Playground](https://play.golang.org/p/1RntHk6UPA5))  
 [Variadic functions](example7/example7.go) ([Go Playground](https://play.golang.org/p/rUjWVBMmxgP))  
 [Range mechanics](example8/example8.go) ([Go Playground](https://play.golang.org/p/d1wToBg6oUu))  

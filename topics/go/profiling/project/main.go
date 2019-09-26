@@ -1,5 +1,8 @@
 // This program provides a sample web service that uses concurrency
 // and channels to perform a coordinated set of asynchronous searches.
+//
+// GODEBUG=gctrace=1 ./project 2> >(grep -v 'scvg') > /dev/null
+//
 package main
 
 import (
@@ -26,7 +29,7 @@ func expvars() {
 	// Add goroutine counts to the variable set.
 	gr := expvar.NewInt("goroutines")
 	go func() {
-		for _ = range time.Tick(time.Millisecond * 250) {
+		for range time.Tick(time.Millisecond * 250) {
 			gr.Set(int64(runtime.NumGoroutine()))
 		}
 	}()

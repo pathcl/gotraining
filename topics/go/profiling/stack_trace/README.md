@@ -83,7 +83,7 @@ each function call.
 
 ### Links
 
-[Stack traces in Go](http://www.goinggo.net/2015/01/stack-traces-in-go.html)  
+[Stack traces in Go](https://www.ardanlabs.com/blog/2015/01/stack-traces-in-go.html)  
 
 ## Core Dumps
 
@@ -150,7 +150,7 @@ Use Delve to review the dump.
 
 ### Links
 
-[Debugging Go core dumps](https://rakyll.org/coredumps/?utm_source=golangweekly&utm_medium=email)  
+[Debugging Go core dumps](https://rakyll.org/coredumps/) - JBD    
 
 ### Code Review
 

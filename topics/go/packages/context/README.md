@@ -17,9 +17,9 @@ The package context defines the Context type, which carries deadlines, cancelati
 ## Links
 
 [Package context](https://golang.org/pkg/context)  
-[Go Concurrency Patterns: Context](https://blog.golang.org/context) - Sameer Ajmani  
-[Cancellation, Context, and Plumbing](https://vimeo.com/115309491) - Sameer Ajmani  
-[Using contexts to avoid leaking goroutines](https://rakyll.org/leakingctx/) -- Jaana Burcu Dogan  
+[Go Concurrency Patterns: Context](https://blog.golang.org/context) - Sameer Ajmani    
+[Cancellation, Context, and Plumbing](https://vimeo.com/115309491) - Sameer Ajmani    
+[Using contexts to avoid leaking goroutines](https://rakyll.org/leakingctx/) - JBD    
 
 ## Code Review
 
@@ -29,7 +29,8 @@ The package context defines the Context type, which carries deadlines, cancelati
 [WithCancel](example2/example2.go) ([Go Playground](https://play.golang.org/p/ubUSuXtsldm))  
 [WithDeadline](example3/example3.go) ([Go Playground](https://play.golang.org/p/o55vCa8cjIt))  
 [WithTimeout](example4/example4.go) ([Go Playground](https://play.golang.org/p/8RdBXtfDv1w))  
-[Request/Response](example5/example5.go) ([Go Playground](https://play.golang.org/p/wt0mbJewT5w))  
+[Request/Response](example5/example5.go) ([Go Playground](https://play.golang.org/p/9x4kBKO-Y6q)  
+[Cancellation](example6/example6.go) ([Go Playground](https://play.golang.org/p/PmhTXiCZUP1)  
 
 ## Exercises
 

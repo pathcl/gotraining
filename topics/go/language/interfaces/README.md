@@ -16,15 +16,19 @@ Interfaces provide a way to declare types that define only behavior. This behavi
 
 _"Polymorphism means that you write a certain program and it behaves differently depending on the data that it operates on." - Tom Kurtz (inventor of BASIC)_
 
+_"The empty interface says nothing." - Rob Pike_
+
+_"Design is the art of arranging code to work today, and be changeable forever." - Sandi Metz_
+
 ## Links
 
-https://golang.org/doc/effective_go.html#interfaces  
-http://blog.golang.org/laws-of-reflection  
-http://www.goinggo.net/2014/05/methods-interfaces-and-embedded-types.html  
-[Interface Pollution](https://medium.com/@rakyll/interface-pollution-in-go-7d58bccec275)  
-[Abstraction Considered Harmful](http://bravenewgeek.com/abstraction-considered-harmful)  
-[Interface Values Are Valueless](https://www.ardanlabs.com/blog/2018/03/interface-values-are-valueless.html) - William Kennedy  
-[Interface Semantics](https://www.ardanlabs.com/blog/2017/07/interface-semantics.html) - William Kennedy  
+[Interfaces](https://golang.org/doc/effective_go.html#interfaces)    
+[The Laws of Reflection](https://blog.golang.org/laws-of-reflection) - Rob Pike    
+[Methods, Interfaces and Embedded Types in Go](https://www.ardanlabs.com/blog/2014/05/methods-interfaces-and-embedded-types.html) - William Kennedy    
+[Interface Pollution](https://medium.com/@rakyll/interface-pollution-in-go-7d58bccec275) - JBD    
+[Abstraction Considered Harmful](https://bravenewgeek.com/abstraction-considered-harmful/) - Tyler Treat    
+[Interface Values Are Valueless](https://www.ardanlabs.com/blog/2018/03/interface-values-are-valueless.html) - William Kennedy    
+[Interface Semantics](https://www.ardanlabs.com/blog/2017/07/interface-semantics.html) - William Kennedy    
 
 ## Code Review
 
@@ -33,6 +37,9 @@ http://www.goinggo.net/2014/05/methods-interfaces-and-embedded-types.html
 [Method Sets](example2/example2.go) ([Go Playground](https://play.golang.org/p/N50ocjUekf3))  
 [Address Of Value](example3/example3.go) ([Go Playground](https://play.golang.org/p/w981JSUcVZ2))  
 [Storage By Value](example4/example4.go) ([Go Playground](https://play.golang.org/p/6U232Ue_BY0))  
+[Type Assertions](example5/example5.go) ([Go Playground](https://play.golang.org/p/f47JMTj2eId))  
+[Conditional Type Assertions](example6/example6.go) ([Go Playground](https://play.golang.org/p/9fYc5RyyvVG))  
+[The Empty Interface and Type Switches](example7/example7.go) ([Go Playground](https://play.golang.org/p/iyDfKCIQ4S9))  
 
 ## Advanced Code Review
 

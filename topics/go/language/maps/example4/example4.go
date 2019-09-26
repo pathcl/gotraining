@@ -1,15 +1,13 @@
 // All material is licensed under the Apache License Version 2.0, January 2004
 // http://www.apache.org/licenses/LICENSE-2.0
 
-// Sample program to show how to walk through a map by alphabetical key order.
+// Sample program to show how to declare, initialize and iterate
+// over a map. Shows how iterating over a map is random.
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
-// user defines a user in the program.
+// user represents someone using the program.
 type user struct {
 	name    string
 	surname string
@@ -25,17 +23,16 @@ func main() {
 		"Jackson": {"Michael", "Jackson"},
 	}
 
-	// Pull the keys from the map.
-	var keys []string
-	for key := range users {
-		keys = append(keys, key)
+	// Iterate over the map printing each key and value.
+	for key, value := range users {
+		fmt.Println(key, value)
 	}
 
-	// Sort the keys alphabetically.
-	sort.Strings(keys)
+	fmt.Println()
 
-	// Walk through the keys and pull each value from the map.
-	for _, key := range keys {
-		fmt.Println(key, users[key])
+	// Iterate over the map printing just the keys.
+	// Notice the results are different.
+	for key := range users {
+		fmt.Println(key)
 	}
 }

@@ -9,11 +9,11 @@ There is a ton of links to extra reading and videos through out the material. Oc
 
 ### Blogs
 
-[Going Go](http://www.goinggo.net) - William Kennedy  
-[The acme of foolishness](http://dave.cheney.net) - Dave Cheney  
+[Ardan Labs Blog](https://www.ardanlabs.com/blog/) - William Kennedy  
+[The acme of foolishness](https://dave.cheney.net) - Dave Cheney  
 [The Go Blog](https://blog.golang.org) - Language Team  
 [Ukiah Smith](https://ukiahsmith.com) - Ukiah Smith  
-[Mechanical Sympathy](http://mechanical-sympathy.blogspot.com) - Martin Thompson  
+[Mechanical Sympathy](https://mechanical-sympathy.blogspot.com) - Martin Thompson  
 [Go Documentation References](https://golang.org/doc/#references) - Language Team
 
 ### Interviews
@@ -25,7 +25,9 @@ There is a ton of links to extra reading and videos through out the material. Oc
 
 ### History
 
+[The Go Programming Language - Official Announcement](https://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53) - Rob Pike  
 [The Evolution of Go](https://www.youtube.com/watch?v=0ReKdcpNyQg) - Robert Griesmer  
+[Less Is Exponentially More (2012)](https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html) - Rob Pike  
 [Language Design in the Service of Software Engineering](https://talks.golang.org/2012/splash.article) - Rob Pike  
 [A Very Brief History of Computing, 1948-2015](http://www.gresham.ac.uk/lectures-and-events/a-very-brief-history-of-computing-1948-2015) - Martyn Thomas  
 [The Rise and Fall of Minicomputers](http://ethw.org/Rise_and_Fall_of_Minicomputers) - Gordon Bell  
@@ -47,6 +49,9 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [4 lessons for modern software developers from 1970s mainframe programming](https://www.hpe.com/us/en/insights/articles/4-lessons-for-modern-software-developers-from-1970s-mainframe-programming-1709.html) - Alan Zeichick  
 [Notes on Programming in C](http://doc.cat-v.org/bell_labs/pikestyle) - Rob Pike  
 [The Why of Go](https://www.infoq.com/presentations/go-concurrency-gc) - Carmen Andoh  
+[The Transistor, Part 3: Endless Reinvention](https://technicshistory.wordpress.com/2018/03/31/the-transistor-part-3-endless-reinvention/amp) - technicshistory  
+[Reflections on Trusting Trust](https://www.archive.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf) - Ken Thompson  
+[Null References: The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare) - Tony Hoare  
 
 ### Contribute to Go
 
@@ -75,14 +80,18 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [Advanced Testing with Go - Deck](https://speakerdeck.com/mitchellh/advanced-testing-with-go) - Mitchell Hashimoto  
 [The tragedy of 100% code coverage](http://labs.ig.com/code-coverage-100-percent-tragedy) - Daniel Lebrero's  
 [Logs and Metrics](https://medium.com/@cindysridharan/logs-and-metrics-6d34d3026e38) - Cindy Sridharan  
+[The deep synergy between testability and good design](https://www.youtube.com/watch?reload=9&feature=share&v=4cVZvoFGJTU&app=desktop) - Michael Feathers  
 
-### Vendoring / Versioning
+### Vendoring / Versioning / Modules
 
 [How one developer just broke Node, Babel and thousands of projects in 11 lines of JavaScript](http://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos)  
 [The End of Software Versions](http://hintjens.com/blog:85) - Pieter Hintjens  
+[Transparent Logs for Skeptical Clients](https://research.swtch.com/tlog) - Russ Cox  
 
 ### Profiling, Debugging and Optimization
 
+[Precise timing of machine code with Linux perf.](https://dendibakh.github.io/blog/2019/04/03/Precise-timing-of-machine-code-with-Linux-perf) - Denis Bakhvalov  
+[The past and future of Microprocessor performance](https://github.com/davecheney/gophercon2018-performance-tuning-workshop/blob/master/1-welcome/introduction.md) - Dave Cheney  
 [Want to Debug Latency?](https://medium.com/observability/want-to-debug-latency-7aa48ecbe8f7) - JBD  
 [Language Mechanics On Escape Analysis](https://www.ardanlabs.com/blog/2017/05/language-mechanics-on-escape-analysis.html) - William Kennedy  
 [Profiling Go Programs](http://golang.org/blog/profiling-go-programs) - Go Team  
@@ -101,7 +110,9 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [go tool trace](https://making.pusher.com/go-tool-trace/) - Will Sewell  
 [Analyzing production using Flamegraphs](https://www.youtube.com/watch?v=aAhNDgEZj_U&app=desktop) - Prashant Varanasi  
 [Go’s hidden #pragmas](https://dave.cheney.net/2018/01/08/gos-hidden-pragmas) - Dave Cheney  
-[Post-mortem debugging of Go Programs](https://fntlnz.wtf/post/gopostmortem/) - Lorenzo Fontana  
+[Post-mortem debugging of Go Programs](https://fntlnz.wtf/post/gopostmortem/) - Lorenzo Fontana   
+[A Crash Course in Modern Hardware](https://www.youtube.com/watch?v=OFgxAFdxYAQ) - Cliff Click  
+[How I investigated memory leaks in Go using pprof on a large codebase](https://medium.freecodecamp.org/how-i-investigated-memory-leaks-in-go-using-pprof-on-a-large-codebase-4bec4325e192) - Jonathan Levison   
 
 ### API Design
 
@@ -109,17 +120,32 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [Focus On Being Precise](https://www.ardanlabs.com/blog/2018/02/focus-on-being-precise.html) - William Kennedy  
 [Design, Composition and Performance](https://www.infoq.com/presentations/Design-Composition-Performance) - Rich Hickey  
 
+### Error Handling
+
+[Go 1.13: xerrors](https://crawshaw.io/blog/xerrors) - David Crawshaw  
+[Error handling and Go](https://blog.golang.org/error-handling-and-go)    
+[Error Handling In Go, Part I](https://www.ardanlabs.com/blog/2014/10/error-handling-in-go-part-i.html) - William Kennedy    
+[Error Handling In Go, Part II](https://www.ardanlabs.com/blog/2014/11/error-handling-in-go-part-ii.html) - William Kennedy    
+[Design Philosophy On Logging](https://www.ardanlabs.com/blog/2017/05/design-philosophy-on-logging.html) - William Kennedy    
+[Bugs are a failure of prediction](https://clipperhouse.com/bugs-are-a-failure-of-prediction/) - Matt Sherman    
+[Inspecting errors](https://dave.cheney.net/2014/12/24/inspecting-errors) - Dave Cheney    
+[Don’t just check errors, handle them gracefully](https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully) - Dave Cheney    
+[Stack traces and the errors package](https://dave.cheney.net/2016/06/12/stack-traces-and-the-errors-package) - Dave Cheney    
+[Errors are handled in return values](https://plus.google.com/+RussCox-rsc/posts/iqAiKAwP6Ce) - Russ Cox    
+[Error handling in Upspin](https://commandcenter.blogspot.com/2017/12/error-handling-in-upspin.html) - Rob Pike    
+
 ### Interfaces and Composition
 
+[Repeat yourself, do more than one thing, and rewrite everything](https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and) - tef  
 [Interface Values Are Valueless](https://www.ardanlabs.com/blog/2018/03/interface-values-are-valueless.html) - William Kennedy  
 [Interface Semantics](https://www.ardanlabs.com/blog/2017/07/interface-semantics.html) - William Kennedy  
 [Design Guidelines](design_guidelines.md)  
 [Interface Pollution](https://medium.com/@rakyll/interface-pollution-in-go-7d58bccec275) - Burcu Dogan  
 [Abstraction Considered Harmful](http://bravenewgeek.com/abstraction-considered-harmful) - Brave New Geek  
-[Methods, Interfaces and Embedding](http://www.goinggo.net/2014/05/methods-interfaces-and-embedded-types.html) - William Kennedy  
-[Composition In Go](https://www.goinggo.net/2015/09/composition-with-go.html) - William Kennedy  
-[Reducing Type Hierarchies](https://www.goinggo.net/2016/10/reducing-type-hierarchies.html) - William Kennedy  
-[Avoid Interface Pollution](https://www.goinggo.net/2016/10/avoid-interface-pollution.html) - William Kennedy  
+[Methods, Interfaces and Embedding](https://www.ardanlabs.com/blog/2014/05/methods-interfaces-and-embedded-types.html) - William Kennedy  
+[Composition In Go](https://www.ardanlabs.com/blog/2015/09/composition-with-go.html) - William Kennedy  
+[Reducing Type Hierarchies](https://www.ardanlabs.com/blog/2016/10/reducing-type-hierarchies.html) - William Kennedy  
+[Avoid Interface Pollution](https://www.ardanlabs.com/blog/2016/10/avoid-interface-pollution.html) - William Kennedy  
 
 ### Concurrency
 
@@ -134,6 +160,8 @@ There is a ton of links to extra reading and videos through out the material. Oc
 
 ### Linux
 
+[Measuring context switching and memory overheads for Linux threads](https://eli.thegreenplace.net/2018/measuring-context-switching-and-memory-overheads-for-linux-threads/) - Eli Bendersky's  
+[Linux Performance](http://www.brendangregg.com/linuxperf.html) - Brendan Gregg  
 [The Definitive Guide to Linux System Calls](http://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/#hardware-and-software)  
 [Linux Performance Analysis in 60,000 Milliseconds](http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html) - Netflix  
 [Tenets of the UNIX Philosophy](http://www.ru.j-npcs.org/usoft/WWW/LJ/Articles/unixtenets.html) - Mike Gancarz    
@@ -166,6 +194,12 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [Designing Cluster Schedulers for Internet-Scale Services](https://queue.acm.org/detail.cfm?id=3199609) - Diptanu Gon Choudhury and Timothy Perrett  
 [Observations on Buffering](https://grimoire.ca/dev/buffers) - Owen Grimoire  
 
+### Specter And Other CPU Attacks
+
+[Different CPU attack](https://cpu.fail)  
+[An analysis of side-channels and speculative execution](https://arxiv.org/pdf/1902.05178.pdf) - White Paper  
+[ Hiding Malware in Speculative Execution](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_02B-5_Wampler_paper.pdf) - White Paper  
+
 ### Go Assembly
 
 [Go Assembly by Example](http://davidwong.fr/goasm/) - David Wong  
@@ -184,6 +218,7 @@ There is a ton of links to extra reading and videos through out the material. Oc
 
 ### Misc
 
+[Why We Can't Divide By Zero](http://digg.com/video/why-cant-you-divide-by-zero) - Eddie Woo  
 [Shrink Your Go Binaries With This One Weird Trick](https://blog.filippo.io/shrink-your-go-binaries-with-this-one-weird-trick) - Filippo Valsorda  
 [USENIX Association Videos](https://www.youtube.com/user/USENIXAssociation)  
 [Latency Tip Of The Day](http://latencytipoftheday.blogspot.com/) -- Gil Tene  
@@ -194,10 +229,18 @@ There is a ton of links to extra reading and videos through out the material. Oc
 [Our Human Condition "From Space"](http://www.vpri.org/pdf/m2003001_human_cond.pdf) - Alan Kay  
 [No Silver Bullet: Essence and Accidents of Software Engineering](http://www.cs.nott.ac.uk/~pszcah/G51ISS/Documents/NoSilverBullet.html) - Frederick P. Brooks, Jr.   
 [Psychology of Code Readability](https://medium.com/@egonelbre/psychology-of-code-readability-d23b1ff1258a) - Egon Elbre  
+[Divide By Zero](https://www.hillelwayne.com/post/divide-by-zero/) - Hillel Wayne  
+[Secrecy, Authentication, and Public Key Systems](http://www.merkle.com/papers/Thesis1979.pdf) - Ralph Merkle  
+[Tales From The Lunar Module Guidance Computer](https://www.doneyles.com/LM/Tales.html) -- Don Eyles  
 
 ### Must Read
 
 [PRinty# C with ABC](http://www.cs.cmu.edu/~tom7/abc/paper.pdf) - Dr. Tom Murphy VII, Ph.D  
+
+
+### Go 2
+
+[Sydney Golang Meetup - Rob Pike - Go 2 Draft Specifications](https://www.youtube.com/watch?v=RIvL2ONhFBI) - Rob Pike  
 
 ## Mechanical Sympathy
 
@@ -218,7 +261,7 @@ Much of this content can be found under [arrays](../topics/go/language/arrays) a
 [Data Center Computers: Modern Challenges in CPU Design](https://m.youtube.com/watch?feature=youtu.be&v=QBu2Ae8-8LM) - Dick Sites  
 [Wirth's Law](https://en.wikipedia.org/wiki/Wirth%27s_law) - Wikipedia  
 [Eliminate False Sharing](http://www.drdobbs.com/parallel/eliminate-false-sharing/217500206) - Herb Sutter    
-[The Myth Of Ram](http://www.ilikebigbits.com/blog/2014/4/21/the-myth-of-ram-part-i) - Emil Ernerfeldt  
+[The Myth Of Ram](http://www.ilikebigbits.com/2014_04_21_myth_of_ram_1.html) - Emil Ernerfeldt  
 [Understanding Transaction Hardware Memory](https://www.infoq.com/presentations/hardware-transactional-memory) - Gil Gene  
 [Want fast C++? Know your hardware!](https://www.youtube.com/watch?v=BP6NxVxDQIs) - Timur Doumler  
 [Performance Through Cache-Friendliness (4:25-5:48)](https://youtu.be/jEG4Qyo_4Bc?t=266) - Damian Gryski  
@@ -250,6 +293,7 @@ This content can be found under [pointers](../topics/go/language/pointers). We f
 
 [Contiguous Stack Proposal](https://docs.google.com/document/d/1wAaf1rYoM4S4gtnPh0zOlGzWtrZFQ5suE8qr2sD8uWQ/pub)  
 [Fix corruption crash/race between select and stack growth](https://github.com/golang/go/commit/b902a63ade47cf69218c9b38c9a783fc8cfc3041) - Russ Cox  
+
 #### Scheduler
 
 [How does the golang scheduler work?](https://www.quora.com/How-does-the-golang-scheduler-work/answer/Ian-Lance-Taylor) - Ian Lance Taylor  
@@ -270,7 +314,8 @@ This content can be found under [pointers](../topics/go/language/pointers). We f
 [Go GC: Solving the Latency Problem](https://www.youtube.com/watch?v=aiv1JOfMjm0&index=16&list=PL2ntRZ1ySWBf-_z-gHCOR2N156Nw930Hm) - Rick Hudson  
 [Concurrent garbage collection](http://rubinius.com/2013/06/22/concurrent-garbage-collection)  
 [Go 1.5 concurrent garbage collector pacing](https://docs.google.com/document/d/1wmjrocXIWTr1JxU-3EQBI6BK6KgtiFArkG47XK73xIQ/edit)  
-[Eliminating Stack Re-Scanning](https://github.com/golang/proposal/blob/master/design/17503-eliminate-rescan.md)  
+[Eliminating Stack Re-Scanning](https://github.com/golang/proposal/blob/master/design/17503-eliminate-rescan.md) - Austin Clements  
+[Simplify mark termination and eliminate mark 2](https://go.googlesource.com/proposal/+/6baae2869cc86164b2aee513446bfb4940966e65/design/26903-simplify-mark-termination.md) - Austin Clements  
 [Why golang garbage-collector not implement Generational and Compact gc?](https://groups.google.com/forum/m/#!topic/golang-nuts/KJiyv2mV2pU) - Ian Lance Taylor  
 [Getting to Go: The Journey of Go's Garbage Collector](https://blog.golang.org/ismmkeynote) - Rick Hudson  
 
@@ -285,6 +330,7 @@ https://godoc.org/golang.org/x/tools/go/ssa
 
 [Runtime Hacking](https://github.com/golang/go/blob/master/src/runtime/HACKING.md)  
 [Timer implementation](https://github.com/golang/go/issues/25471#issuecomment-391906366) - Ian Lance Taylor  
+[The Go low-level calling convention on x86-64](https://science.raphael.poss.name/go-calling-convention-x86-64.html) - Raphael ‘kena’ Poss  
 
 ## Hardware
 
@@ -299,6 +345,7 @@ https://godoc.org/golang.org/x/tools/go/ssa
 
 [Open issues for the upcoming release](https://dev.golang.org/release)
 
+[Go 1.12 Release Notes](https://golang.org/doc/go1.12) - 2019/02/25
 [Go 1.11 Release Notes](https://golang.org/doc/go1.11) - 2018/08/24  
 [Go 1.10 Release Notes](https://golang.org/doc/go1.10) - 2018/02/16  
 [Go 1.09 Release Notes](https://golang.org/doc/go1.9) - 2017/08/24  

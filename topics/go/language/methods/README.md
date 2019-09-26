@@ -1,6 +1,6 @@
 ## Methods
 
-Methods are functions that are declared with a receiver which binds the method to a type. Methods can be used to operate on values or pointers of that type.
+Methods are functions that give data the ability to exhibit behavior.
 
 ## Notes
 
@@ -16,8 +16,8 @@ _"Methods are valid when it is practical or reasonable for a piece of data to ex
 
 ## Links
 
-https://golang.org/doc/effective_go.html#methods  
-http://www.goinggo.net/2014/05/methods-interfaces-and-embedded-types.html
+[Methods](https://golang.org/doc/effective_go.html#methods)    
+[Methods, Interfaces and Embedded Types in Go](https://www.ardanlabs.com/blog/2014/05/methods-interfaces-and-embedded-types.html) - William Kennedy    
 
 ## Code Review
 

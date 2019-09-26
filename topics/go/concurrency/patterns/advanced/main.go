@@ -9,24 +9,40 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"sync"
 	"time"
 )
 
 // device allows us to mock a device we write logs to.
 type device struct {
+	mu      sync.RWMutex
 	problem bool
 }
 
 // Write implements the io.Writer interface.
 func (d *device) Write(p []byte) (n int, err error) {
-	for d.problem {
 
-		// Simulate disk problems.
+	// Simulate disk problems.
+	for d.isProblem() {
 		time.Sleep(time.Second)
 	}
 
 	fmt.Print(string(p))
 	return len(p), nil
+}
+
+// isProblem checks in a safe way if there is a problem.
+func (d *device) isProblem() bool {
+	d.mu.RLock()
+	defer d.mu.RUnlock()
+	return d.problem
+}
+
+// flipProblem reverses the problem flag to the opposite value.
+func (d *device) flipProblem() {
+	d.mu.Lock()
+	defer d.mu.Unlock()
+	d.problem = !d.problem
 }
 
 func main() {
@@ -58,9 +74,6 @@ func main() {
 
 	for {
 		<-sigChan
-
-		// I appreciate we have a data race here with the Write
-		// method. Let's keep things simple to show the mechanics.
-		d.problem = !d.problem
+		d.flipProblem()
 	}
 }

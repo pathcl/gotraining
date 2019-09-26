@@ -1,4 +1,6 @@
-## Go Training [![Build Status](https://travis-ci.org/ardanlabs/gotraining.svg?branch=master)](https://travis-ci.org/ardanlabs/gotraining)
+## Go Training
+
+[![CircleCI](https://circleci.com/gh/ardanlabs/gotraining.svg?style=svg)](https://circleci.com/gh/ardanlabs/gotraining)
 
 [Review our different courses and material](topics/README.md)  
 
@@ -45,6 +47,11 @@ _**Articles**_
 [IT World Canada](http://www.itworldcanada.com/article/nascent-google-development-language-shows-promise-for-more-productive-coding/387449)
 
 _**Video**_  
+[Training Within The Go Community (2019)](https://www.youtube.com/watch?v=PSR1twjzzAM&feature=youtu.be)  
+
+[GopherCon Singapore (2019) - Garbage Collection Semantics](https://www.youtube.com/watch?v=q4HoWwdZUHs)  
+[GopherCon India (2019) - Channel Semantics](https://www.youtube.com/watch?v=AHAf1Xfr_HE)  
+[GoWayFest Minsk (2018) - Profiling Web Apps](https://www.youtube.com/watch?v=-GBMFPegqgw)  
 [GopherChina (2018) - Composition In Go William](https://www.youtube.com/watch?v=pvLUO9ZManM&feature=youtu.be)  
 [GopherCon Singapore (2018) - Optimizing For Correctness](https://engineers.sg/video/optimize-for-correctness-gopherconsg-2018--2610)  
 [GopherCon India (2018) - What is the Legacy You Are Leaving Behind](https://www.youtube.com/watch?v=j3zCUc06OXo&t=0s&index=11&list=PLhJxE57Cki63cElK2kmt3_vi8j2eIHTqZ)  
@@ -82,13 +89,14 @@ He started his career creating web applications in PHP, Ruby, and Node.js. When 
 
 Coming from the thriving metropolis of Wichita, Kansas Jacob is the president of the [devICT](https://devict.org) community whose mission is to "Educate, Empower, and Connect software developers in the Wichita area". He also works closely with [Women Who Code Wichita](https://www.meetup.com/WWCWichita/), [Open Wichita](http://openwichita.com/), [MakeICT](http://makeict.org/), and [Kansas Linux Fest](http://kansaslinuxfest.org/).
 
-When he isn't working or organizing Jacob is traveling the country with his wife Anna and their three kids Kell, Carter, and Rory. Comfortably packed into the Winnebago they call home the Walker family travels from city to city seeking adventure.
+When he isn't working or organizing, Jacob is with his wife Anna and their three kids Kell, Carter, and Rory.
 
 _**Writing**_  
 [Jacob Walker's blog](http://www.jacob-walker.com/)  
 
 _**Video**_  
 [Better Allies in Tech](https://www.youtube.com/watch?v=PWheG9CyUAY)  
+[GopherCon Singapore (2019) - Understanding Allocations: the Stack and the Heap](https://www.youtube.com/watch?v=ZMZpH4yT7M0)  
 [An Informal Intro to Docker](https://www.youtube.com/watch?v=xYNJ_IAj35Q)  
 [Women Who Code Intro To Go Workshop](https://www.youtube.com/watch?v=gDxSiKNk0Pw)  
 [Getting Started with Go](https://www.youtube.com/watch?v=zVvjpLu6iIo)  
@@ -113,97 +121,59 @@ _**Video**_
 _**Podcasts**_  
 [Go Time - Episode 4](https://changelog.com/gotime/4)    
 
-### John Gosset ([@jgosset_](https://twitter.com/jgosset_))  
-John is a consultant and software developer based in Montreal, Canada. He works on server software and embedded systems, and has worked with organizations large and small in both the public and private sectors - from the Canadian government and FinTech companies to small carpet manufacturers in Saint-Jean-sur-Richelieu, Quebec. He is also a contractor for RedHat, and volunteers with the Software Carpentry Foundation to help research scientists learn programming fundamentals. He believes coding is a useful skill for anyone to have, and is passionate about helping make it more accessible to everybody.
-
-_**Video**_  
-[GopherCon Brazil - Go Scratch That Itch](https://www.youtube.com/watch?v=EIUvUBS-3ZE)  
-
 ## Current Schedule
 
 If you are interested in holding an event in your area please let me know. We will work with you and your organization to help make it happen.
 
-### 2018
+### 2019
 
 **Bill Kennedy**  
 ```
 Date                Location              Venue               Type         Type             Url
 ================================================================================================================================================
-January(23-25)      St. Louis, MO         Centene             Corporate    Go (3 day)       
-January(29-31)      Toronto, Canada       Index Exchange      Corporate    Go (3 day)       
-February(06-08)     Paris, France         Oxiane              Corporate    Go (3 day)       
-February(15)        Chicago, IL           Loyola University   Meetup       Go (talk)        
-February(20-21)     Belgrade, Serbia      Fincore             Corporate    Go (2 day)       
-February(24-25)     Berlin, Germany       Hello Fresh         WWG          Go (2 day)       https://www.meetup.com/Women-Who-Go-Berlin/events/247056137/
-March(07-10)        Pune, India           GopherCon India     Conference   Adv Go (1 day)   http://www.gophercon.in/go-workshop1/
-March(20-22)        Lanham, MD            McMurdo Group       Corporate    Go (3 day)       
-April(02-04)        NYC, NY               Tumblr              Corporate    Go (3 day)       
-April(09-11)        Singapore             NCS                 Corporate    Go (3 day)       
-April(14-15)        Shanghai, China       Garden Hotel        Conference   Adv Go (1 day)   http://gopherchina.org/
-May(02-04)          Singapore             Google              Conference   Adv Go (1 day)   https://2018.gophercon.sg/
-May(08-10)          Santa Monica, CA      Hallmark            Corporate    Go (3 day)       
-May(16-18)          Belgrade, Serbia      Fincore             Corporate    Go (3 day)       
-May(31-02)          Reykjavík, Iceland    Harpa               Conference   Adv Go (1 day)   https://gophercon.is/
-June(06-08)         Singapore             SP Digital          Corporate    Go (3 day)       
-June(25-26)         NYC, NY               QCON                Conference   Adv Go (1 day)   https://qconnewyork.com/
-June(30-01)         Providence, RI        Intercity Geeks     GoBridge     Go (2 day)       http://careerdevs.com/goprovidence/
-July(02-06)         San Francisco, CA     Pearson             Video        Go (4 day)
-July(09-16)         San Diego, CA         TBD                 Meetup       Go (talk)
-July(25-30)         Indianapolis, IN      NFL Experience      Vaca         Available
-July(31-02)         Los Angles, CA        Tradesy             Corporate    Go (3 day)
-August(13-15)       Atlanta, GA           Turner              Corporate    Go (3 day)
-August(18-19)       Berlin, Germany       Cosmos              WWG          Go (2 day)       https://www.meetup.com/Women-Who-Go-Berlin/events/253303548
-August(27)          Denver, CO            Gophercon USA       Conference   Adv Go (1 day)   https://www.gophercon.com/
-September(01-02)    San Franisco, CA      TBD                 WWG          Go (2 day)       https://www.meetup.com/Women-Who-Go/events/253734992/
-September(15-16)    Portland, OR          Puppet              GoBridge     Go (2 day)
-September(24-26)    Reston, VA            Comcast             Corporate    Go (3 day)
-September(27-30)    Minsk, Belarus        GoWayFest           Conference   Adv Go (1 day)   https://goway.io/
-October(04-06)      Stockholm             TBD                 Conference   Go (talk)   
-October(08-10)      Portugal              OLX                 Corporate    Go (3 day)   
-October(12)         San Franisco, CA      Grand Theater       Conference   Go (1 day)       http://gopherpalooza.com/
-October(16-17)      Miami, FL             Ardan Office        Public       Adv Go (2 day)   https://www.eventbrite.com/e/ultimate-go-training-miami-oct-2018-tickets-48207094718
-October(22-23)      Florence, Italy       GoLab               Conference   Adv Go (1 day)   https://www.golab.io/
-November(05-06)     Silicon Valey, CA     Paypal              Corporate    Go (3 day)
-November(08-09)     San Franisco, CA      QCON                Conference   Adv Go (1 day)   https://qconsf.com/
-December(01)        HCMC, Vietnam         TBD                 Conference   Go (1 day)       http://gophercon.vn/
-December(04-05)     Santa Monica, CA      ZipRecruiter        Corporate    Go (3 day)
-```
-
-**Jacob Walker**  
-```
-Date                Location              Venue               Type         Type             Url
-================================================================================================================================================
-February(28-29)     San Jose, CA          Nutanix             Corporate    Go (3 day)
-March(06-08)        St. Louis, MO         Centene             Corporate    Go (3 day)
-March(13-15)        Boulder, CO           Spectra Logic       Corporate    Go (3 day)
-April(03-05)        Santa Monica, CA      Hallmark Labs       Corporate    Go (3 day)
-April(09-11)        St. Louis, MO         Centene             Corporate    Go (3 day)
-April(12-13)        St. Louis, MO         Centene             Corporate    Go (2 day)
-May(22-24)          St. Louis, MO         Centene             Corporate    Go (3 day)
-May(29-31)          Portland, OR          Intel               Corporate    Go (3 day)
-June(12-14)         Sunnyvale, CA         Juniper             Corporate    Adv Go (3 day)
-June(19-21)         Malaysia              Chotot              Corporate    Adv Go (3 day)
-July(10-12)         Chicago, IL           Enova               Corporate    Adv Go (3 day)
-July(24-26)         St. Louis, MO         Centene             Corporate    Go (3 day)
-September(11-13)    Santa Monica, CA      ZipRecruiter        Corporate    Go (3 day)
-October(09-11)      San Jose, CA          Oracle              Corporate    Adv Go (3 day)
-October(16-18)      Torrance, CA          Dollar Shave Club   Corporate    Go (3 day)
-October(23-25)      St. Louis, MO         Centene             Corporate    Go (3 day)
-November(07-09)     Guadalajara, Mexico   Intel               Corporate    Adv Go (3 day)
-November(27-29)     Portland, OR          New Relic           Corporate    Go (3 day)
-```
-
-**Daniel Whitenack**  
-```
-Date                Location              Venue               Type         Type             Url
-================================================================================================================================================
-April(10)           San Francisco, CA     QCON                Conference   AI (1 day)       https://qconsf.com/
+January(16-19)      Goa, India            GopherCon India     Conference   Adv Go (1 day)   https://gopherconindia.com/go-workshop1/
+January(21-23)      Bangalore, India      Paypal              Corporate    Go (3 day)       
+January(28-30)      Fort Mill, SC         Red Ventures        Corporate    Go (3 day)       
+February(02-03)     Troy, NY              Rensselaer Poly In  GoBridge     Go (2 day)       https://www.eventbrite.com/e/capital-district-gobridge-ultimate-go-tickets-52406438067
+February(08-09)     Orlando, FL           TBA                 Gobridge     Go (2 day)       https://www.eventbrite.com/e/ultimate-gogo-bridge-w-bill-kennedy-orlando-tickets-50361134509
+February(13-15)     Copenhagen, Denmark   Maersk              Corporate    Go (3 day)       
+February(25-26)     Birmingham, AL        Shipt               Corporate    Go Perf (2 day)       
+March(04-06)        Lisbon, Portugal      OLX                 Corporate    Go (3 day)
+March(07-08)        London, England       QCON                Conference   Adv Go (1 day)   https://qconlondon.com/
+March(12-14)        Boise, ID             Kount               Corporate    Go (3 day)       
+March(25-27)        Berlin, Germany       OLX                 Corporate    Go (3 day)  
+April(24-27)        Malaysia              Intel               Corporate    Go (3 day)  
+April(29-03)        Singapore             GopherCon Signapore Conference
+May(07-08)          Budapest, Hungary     Magyar Vasúttörtén  Conference   Adv Go (1 day)   https://craft-conf.com/
+May(25)             Africa, Kenya         Andela Kenya        GoBridge     Go (1 day)
+May(27-01)          Canary Islands        GopherCon EU        Conference   Adv Go (1 day)   https://www.eventbrite.co.uk/e/gophercon-eu-2019-canary-islands-tickets-55633196388
+June(08-09)         Seattle, WA           TBA                 Gobridge     Go (2 day)       
+June(18-20)         Singapore             SP Group            Corporate    Go (3 day)
+June(26-28)         Copenhagen, Denmark   Maersk              Corporate    Go Service (3 day)       
+July(02-07)         Minsk, Belarus        Go Way Fest         Conference   Adv Go (1 day)   https://goway.io/
+July(10-12)         Texas                 Reward Style        Corporate    Go (3 day)
+July(24-27)         San Diego, CA         GopherCon USA       Conference   Adv Go (2 day)   https://www.gophercon.com
+September(10-11)    Portland, OR          Intel               Corporate    Go (2 day)
+September(13-15)    Anchorage, AK         TBA                 Gobridge     Go (3 day)       
+September(23-25)    Miami, FL             Ardan Labs          Open Class   Go (3 day)       https://www.eventbrite.com/e/3-day-advanced-ultimate-go-training-miami-september-2019-tickets-64610339264
+September(28-29)    Albany, NY            GDG Capital Region  Conference   Adv Go (1 day)   https://sites.google.com/view/devfest-gdg-capitalregion
+October(07-09)      Copenhagen, Denmark   Maersk              Corporate    Service (3 day)       
+October(10-12)      Berlin, Germany       Rocket Tower        Open Class   Go (3 day)       https://www.eventbrite.com/e/3-day-advanced-ultimate-go-training-berlin-october-2019-tickets-68184368281
+October(21-22)      Florence, Italy       GoLab               Conference   Adv Go (1 day)   https://www.golab.io/
+October(28-29)      Melbourne, Australia  Zendesk             Corporate    Go (3 day)
+October(30-01)      Sydney, Australia     GopherCon AU        Conference   Adv Go (1 day)
+November(05-07)     Santa Monica, CA      Hallmark Labs       Corporate    Go (3 day)
+November(14)        San Francisco, CA     Keep Truckin        Corporate    Go (1 day)
+November(15)        San Francisco, CA     QCON                Conference   Service (1 day)  https://qconsf.com//
+November(18-20)     London, England       Flyt                Open Class   Go (3 day)       https://www.eventbrite.com/e/3-day-advanced-ultimate-go-training-london-november-2019-tickets-72938134925
+December(03-05)     San Jose, CA          KLA                 Corporate    Go (3 day)
 ```
 
 ### Past Events
 
-Look at how busy we have been training thousands of developers in Go over the past four years.
+Look at how busy we have been training thousands of developers in Go over the past five years.
 
+		2018 : 60 Events
 		2017 : 40 Events 
 		2016 : 37 Events  
 		2015 : 33 Events  
@@ -256,19 +226,7 @@ We use a slack channel to share links, code, and examples during the training.  
 
 #### Local Installation
 
-https://www.goinggo.net/2016/05/installing-go-and-your-workspace.html
-
-#### Using Docker
-Installing Go may not be needed if you choose to use [Docker](#docker). With running a gotraining container, you can download the training material at any location on your disk without having to set ```$GOPATH```. And you can still access (e.g. for editing) the training materials locally.
-
-```
-git clone https://github.com/ardanlabs/gotraining.git
-cd gotraining
-```
-
-*NOTE:* This assumes you have Git installed.  If you don’t, you can find the installation instructions here: https://git-scm.com/
-
-To build and run docker container to start your training right away, see [here](#docker).
+https://www.ardanlabs.com/blog/2016/05/installing-go-and-your-workspace.html
 
 ### Editors
 
@@ -302,7 +260,7 @@ For a full list of editors, see the wiki: https://github.com/golang/go/wiki/IDEs
 While many of the examples can be done using the online playground (http://play.golang.org), some may find it easier to complete them with their local editor.  To do so, you will want to load the training material locally to your machine.  From a command prompt, issue the following commands:
 
 ```sh
-mkdir -p $GOPATH/src/github.com/ardanlabs && cd $_
+mkdir -p $(go env GOPATH)/src/github.com/ardanlabs && cd $_
 git clone https://github.com/ardanlabs/gotraining.git
 ```
 
@@ -312,7 +270,7 @@ git clone https://github.com/ardanlabs/gotraining.git
   
 http://golang.org/  
 https://tour.golang.org/welcome/1  
-http://www.goinggo.net/
+https://www.ardanlabs.com/blog/
 
 ## Go Get The Training Material
 
@@ -372,29 +330,5 @@ _"I highly recommend William Kennedy / Ardan Lab for Go Training. William is ext
 Georgi Knox ([@GeorgiCodes](https://twitter.com/georgicodes))  
 _"The Intro to Go Workshop enabled me to come into class with very little knowledge of Go and leave having a firm grasp of the key concepts of the language. Each topic was followed up with hands-on coding problems which helped to solidify what I was learning. My teacher Bill was not only approachable, but very excited about the language and his enthusiasm was contagious. I enjoyed that we talked about some of the lower level implementation details of Go which was something that I had found lacking from some books on the language. Overall I would highly recommend this workshop to anyone looking to learn Go quickly and effectively."_
 
-___
-
-## Running Docker
-<a name="docker" />
-
-**Install Docker Toolbox**  
-https://www.docker.com/products/docker-toolbox
-
-**Build Docker image**
-```
-# current path is the source root where Dockerfile exists
-docker build -t ardanlabs/gotraining:latest .
-```
-
-**Start Docker container**
-```
-cd $GOPATH/src/github.com/ardanlabs/gotraining
-docker run -i -t -p 8080:8080 -v "$PWD":/go/src/github.com/ardanlabs/gotraining ardanlabs/gotraining:latest
-```
-
-**What is running**
-```
-docker ps -a
-```
 ___
 All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).
